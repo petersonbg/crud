@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{%block title%} Cadastro {%endblock%}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>Deletar Livros</h1>
+    <p>Tem certeza que deseja deletar o livro {{livro.titulo}}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Deletar</button>
+        </form>
+</div>
+{% endblock %}

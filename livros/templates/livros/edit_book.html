@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{%block title%} Cadastro {%endblock%}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h1>Cadastro de Livros</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button class="btn btn-success" type="submit">Salvar</button>
+            <a class="btn btn-primary" href="/books/">Voltar</a>
+        </form>
+
+</div>
+{% endblock %}

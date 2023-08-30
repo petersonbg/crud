@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{%block title%} Livros {%endblock%}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Autor</th>
+          <th scope="col">Editora</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for livros in livro %}
+        <tr>
+
+                <th scope="row">{{livros.id}}</th>
+                <td>{{livros.titulo}}</td>
+                <td>{{livros.autor}}</td>
+                <td>{{livros.editora}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'livros:view_book' livros.id %}">Visualizar</a>
+
+                </td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}
+

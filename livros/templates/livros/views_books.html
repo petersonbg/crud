@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%block title%}Livro {{livro.titulo}}{%endblock%}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID:</th>
+      <td>{{livro.id}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Titulo:</th>
+      <td>{{livro.titulo}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Autor:</th>
+      <td>{{livro.autor}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Categoria:</th>
+      <td>{{livro.categoria}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Descrição:</th>
+      <td>{{livro.descricao}}</td>
+    </tr>
+  </thead>
+  </tbody>
+</table>
+    <div>
+        <a class="btn btn-warning" href="{% url 'livros:edit_book' livro.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'livros:delete_book' livro.id %}">Excluir</a>
+    </div>
+</div>
+{% endblock %}
