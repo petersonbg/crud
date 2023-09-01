@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 from alunos.models import Aluno
 from livros.models import Livro
+from django.utils.timezone import timezone
 
 
 class Aluguel(models.Model):
@@ -11,5 +12,5 @@ class Aluguel(models.Model):
     )
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     livro = models.ManyToManyField(Livro)
-    data_aluguel = models.DateField(default=datetime.now(), null=False, blank=False)
+    data_aluguel = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=False, blank=False)
