@@ -14,7 +14,7 @@ def create_books(request):
         if form.is_valid():
             form.save()
             messages.success(request,'Livro cadastrado com sucesso!!')
-            return redirect('create_books')
+            return redirect('/create_books/')
     else:
         form = LivrosForm
 
@@ -37,7 +37,7 @@ def edit_book(request, livro_id):
         form = LivrosForm(request.POST, instance=livro)
         if form.is_valid():
             form.save()
-            return redirect('books')
+            return redirect('/books/')
     else:
         form = LivrosForm(instance=livro)
 
@@ -48,7 +48,7 @@ def delete_book(request, livro_id):
     livro = get_object_or_404(Livro, pk=livro_id)
     if request.method == 'POST':
         livro.delete()
-        return redirect('list_books')
+        return redirect('/list_books/')
     return render(request, 'livros/delete_book.html', {'livro': livro})
 
 
@@ -57,7 +57,7 @@ def create_categories(request):
         categoria = request.POST.get('categoria')
         cadastro = Categorias(categoria=categoria)
         cadastro.save()
-        return redirect('create_books')
+        return redirect('/create_books/')
 
 
 

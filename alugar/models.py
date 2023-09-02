@@ -14,3 +14,6 @@ class Aluguel(models.Model):
     livro = models.ManyToManyField(Livro)
     data_aluguel = models.DateTimeField(default=datetime.now(), null=False, blank=False)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=False, blank=False)
+
+    def __str__(self):
+        return str(self.aluno)
