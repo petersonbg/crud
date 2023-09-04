@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormEndereco, FormAluno
-from .models import Aluno
+from .models import Aluno, Endereco
 
 
 def create_student(request):
@@ -23,4 +23,6 @@ def list_student(request):
     aluno = Aluno.objects.all()
     return render(request, 'alunos/list_student.html', {'aluno': aluno})
 
-# Create your views here.
+def view_student(request, aluno_id):
+    aluno = get_object_or_404(Aluno, pk=aluno_id)
+    return render(request, 'alunos/views_student.html',{'aluno': aluno})
