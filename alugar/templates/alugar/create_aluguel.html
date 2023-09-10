@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{%block title%} Cadastro {%endblock%}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <h2>Aluguel de livros</h2>
+    {%csrf_token%}
+    <div>Aluno: {{form.aluno}}</div>
+    <div>Livros: {{form.livro}}</div>
+    <div>Data Aluguel: {{form.data_aluguel}}</div>
+    <div>Status: {{form.status}}</div>
+</div>
+
+{% endblock %}
+
+
+

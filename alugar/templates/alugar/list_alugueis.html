@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%} Cadastro {%endblock%}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data Aluguel</th>
+            <th scope="col">Situação</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for aluguel in alugueis %}
+        <tr>
+
+                <th scope="row">{{aluguel.id}}</th>
+                <td>{{aluguel.aluno}}</td>
+                <td>{{aluguel.data_aluguel}}</td>
+                <td>{{aluguel.status}}</td>
+
+                <td>
+                    <a class="btn btn-primary" href="{% url 'alugar:view_aluguel' aluguel.id %}">Visualizar</a>
+
+                </td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{%block title%}Aluno {{aluno.nome}}{%endblock%}
+
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID:</th>
+      <td>{{alugueis.id}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Nome:</th>
+      <td>{{alugueis.aluno}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Livros:</th>
+      <td>
+        {% for livros in livros_all %}
+        <p>* {{livros.titulo}}</p>
+        {% endfor %}
+      </td>
+
+    </tr>
+    <tr>
+      <th scope="col">Data Alugueis:</th>
+      <td>{{alugueis.data_aluguel}}</td>
+    </tr>
+    <tr>
+      <th scope="col">Status:</th>
+      <td>{{alugueis.status}}</td>
+    </tr>
+  </thead>
+  </tbody>
+</table>
+    <div>
+        <a class="btn btn-warning" href="">Editar</a>
+        <a class="btn btn-danger" href="">Excluir</a>
+    </div>
+</div>
+{% endblock %}
